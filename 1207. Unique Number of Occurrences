@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        unordered_map<int, int> count;
+        for (int num : arr) {
+            count[num]++;
+        }
+
+        set<int> freq;
+        for (auto& [num, count] : count) {
+            freq.insert(count);
+        }
+
+        return freq.size() == count.size();
+    }
+};
