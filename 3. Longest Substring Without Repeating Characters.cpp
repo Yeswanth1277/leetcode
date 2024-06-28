@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+         int n = s.size();
+        if (n == 0) {
+            return 0;
+        }
+
+        int maxLength = 0;
+        int left = 0, right = 0;
+        int charIndex[128]; // Assuming ASCII characters
+
+        // Initialize charIndex array
+        memset(charIndex, -1, sizeof(charIndex));
+
+        while (right < n) {
+            if (charIndex[s[right]] == -1 || charIndex[s[right]] < left) {
+                charIndex[s[right]] = right;
+                maxLength = std::max(maxLength, right - left + 1);
+                ++right;
+            } else {
+                left = charIndex[s[right]] + 1;
+            }
+        }
+
+        return maxLength;
+    }
+};
