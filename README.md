@@ -1,2 +1,2 @@
 Hello!!
-In this repository, you can find the solutions of leetcode problems.
+In this repository, you can find the solutions to leetcode problems in C++.
