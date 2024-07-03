@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int minDifference(vector<int>& nums) {
+       int n=nums.size();
+        sort(nums.begin(),nums.end());
+        int ans=nums[n-1]-nums[0];
+        if(n<=3){
+            return 0;
+        }
+        
+        int start=0;
+        int end=n-4;
+        for(int k=0;k<4;k++){
+            ans=min(ans,nums[end+k]-nums[start+k]);
+        }
+        
+        
+        return ans;
+    }
+};
