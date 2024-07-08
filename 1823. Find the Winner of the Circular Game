@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int findTheWinner(int n, int k) {
+        vector<int>players;
+        for(int i=1;i<=n;i++){
+            players.push_back(i);
+        }
+        int i=0;
+        while(players.size()>1){
+            i = (i+k-1)%players.size();
+            players.erase(players.begin()+i);
+        }
+        return players[0];
+    }
+};
